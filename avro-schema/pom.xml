@@ -53,8 +53,7 @@
                               <!--<sourceDirectory>${project.basedir}/src/main/resources/avro/</sourceDirectory>
                               <outputDirectory>${project.build.directory}/generated/avro</outputDirectory>-->
                               <imports>
-                                  <import>${basedir}/src/main/avro/review.avsc</import>
-                                  <import>${basedir}/src/main/avro/statistics.avsc</import>
+                                  <import>${basedir}/src/main/avro/email.avsc</import>
                               </imports>
                           </configuration>
                       </execution>
