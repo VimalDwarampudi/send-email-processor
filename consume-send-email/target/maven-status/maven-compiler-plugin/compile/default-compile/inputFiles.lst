@@ -1,7 +1,0 @@
-E:\TCB\github\send-email-processor\consume-send-email\src\main\java\com\codebigbear\processor\exceptions\CustomException.java
-E:\TCB\github\send-email-processor\consume-send-email\src\main\java\com\codebigbear\processor\services\EmailService.java
-E:\TCB\github\send-email-processor\consume-send-email\src\main\java\com\codebigbear\processor\services\SendGridEmailService.java
-E:\TCB\github\send-email-processor\consume-send-email\src\main\java\com\codebigbear\processor\config\ReceiverConfig.java
-E:\TCB\github\send-email-processor\consume-send-email\src\main\java\com\codebigbear\processor\SpringKafkaConsumer.java
-E:\TCB\github\send-email-processor\consume-send-email\src\main\java\com\codebigbear\processor\services\ReadFileFromS3.java
-E:\TCB\github\send-email-processor\consume-send-email\src\main\java\com\codebigbear\processor\consumer\ReceiverAndSend.java
