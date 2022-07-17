@@ -16,5 +16,9 @@ logging:
     com.codebigbear.kafka.consumer: DEBUG
 
 
+
 server:
   port: 8080
+
+# SENDGRID CONFIG (SendGridAutoConfiguration)
+spring.sendgrid.api-key: <API-KEY> # SendGrid API Key

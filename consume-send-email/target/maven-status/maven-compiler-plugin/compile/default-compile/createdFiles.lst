@@ -1,4 +1,7 @@
-com\codebigbear\processor\config\ReceiverConfig.class
-com\codebigbear\processor\consumer\Receiver.class
 com\codebigbear\processor\SpringKafkaConsumer.class
+com\codebigbear\processor\services\ReadFileFromS3.class
+com\codebigbear\processor\config\ReceiverConfig.class
+com\codebigbear\processor\services\SendGridEmailService.class
+com\codebigbear\processor\services\EmailService.class
 com\codebigbear\processor\exceptions\CustomException.class
+com\codebigbear\processor\consumer\ReceiverAndSend.class

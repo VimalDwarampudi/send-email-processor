@@ -2,7 +2,7 @@
   "type": "record",
   "name": "Email",
   "fields": [
-    {"name": "template_id", "type": "long", "default": 0},
+    {"name": "template_id", "type": "string", "default": null},
     {"name": "email_id", "type": "string", "default": null}
   ]
 }

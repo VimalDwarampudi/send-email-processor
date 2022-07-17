@@ -13,8 +13,8 @@ import org.apache.avro.message.SchemaStore;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class Email extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 5570223373834413271L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Email\",\"namespace\":\"com.codebigbear.avro\",\"fields\":[{\"name\":\"template_id\",\"type\":\"long\",\"default\":0},{\"name\":\"email_id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"default\":null}]}");
+  private static final long serialVersionUID = 7750424327864157519L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Email\",\"namespace\":\"com.codebigbear.avro\",\"fields\":[{\"name\":\"template_id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"default\":null},{\"name\":\"email_id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -51,7 +51,7 @@ public class Email extends org.apache.avro.specific.SpecificRecordBase implement
     return DECODER.decode(b);
   }
 
-   private long template_id;
+   private java.lang.String template_id;
    private java.lang.String email_id;
 
   /**
@@ -66,7 +66,7 @@ public class Email extends org.apache.avro.specific.SpecificRecordBase implement
    * @param template_id The new value for template_id
    * @param email_id The new value for email_id
    */
-  public Email(java.lang.Long template_id, java.lang.String email_id) {
+  public Email(java.lang.String template_id, java.lang.String email_id) {
     this.template_id = template_id;
     this.email_id = email_id;
   }
@@ -85,7 +85,7 @@ public class Email extends org.apache.avro.specific.SpecificRecordBase implement
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: template_id = (java.lang.Long)value$; break;
+    case 0: template_id = (java.lang.String)value$; break;
     case 1: email_id = (java.lang.String)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
@@ -95,7 +95,7 @@ public class Email extends org.apache.avro.specific.SpecificRecordBase implement
    * Gets the value of the 'template_id' field.
    * @return The value of the 'template_id' field.
    */
-  public java.lang.Long getTemplateId() {
+  public java.lang.String getTemplateId() {
     return template_id;
   }
 
@@ -103,7 +103,7 @@ public class Email extends org.apache.avro.specific.SpecificRecordBase implement
    * Sets the value of the 'template_id' field.
    * @param value the value to set.
    */
-  public void setTemplateId(java.lang.Long value) {
+  public void setTemplateId(java.lang.String value) {
     this.template_id = value;
   }
 
@@ -155,7 +155,7 @@ public class Email extends org.apache.avro.specific.SpecificRecordBase implement
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Email>
     implements org.apache.avro.data.RecordBuilder<Email> {
 
-    private long template_id;
+    private java.lang.String template_id;
     private java.lang.String email_id;
 
     /** Creates a new Builder */
@@ -199,7 +199,7 @@ public class Email extends org.apache.avro.specific.SpecificRecordBase implement
       * Gets the value of the 'template_id' field.
       * @return The value.
       */
-    public java.lang.Long getTemplateId() {
+    public java.lang.String getTemplateId() {
       return template_id;
     }
 
@@ -208,7 +208,7 @@ public class Email extends org.apache.avro.specific.SpecificRecordBase implement
       * @param value The value of 'template_id'.
       * @return This builder.
       */
-    public com.codebigbear.avro.Email.Builder setTemplateId(long value) {
+    public com.codebigbear.avro.Email.Builder setTemplateId(java.lang.String value) {
       validate(fields()[0], value);
       this.template_id = value;
       fieldSetFlags()[0] = true;
@@ -229,6 +229,7 @@ public class Email extends org.apache.avro.specific.SpecificRecordBase implement
       * @return This builder.
       */
     public com.codebigbear.avro.Email.Builder clearTemplateId() {
+      template_id = null;
       fieldSetFlags()[0] = false;
       return this;
     }
@@ -277,7 +278,7 @@ public class Email extends org.apache.avro.specific.SpecificRecordBase implement
     public Email build() {
       try {
         Email record = new Email();
-        record.template_id = fieldSetFlags()[0] ? this.template_id : (java.lang.Long) defaultValue(fields()[0]);
+        record.template_id = fieldSetFlags()[0] ? this.template_id : (java.lang.String) defaultValue(fields()[0]);
         record.email_id = fieldSetFlags()[1] ? this.email_id : (java.lang.String) defaultValue(fields()[1]);
         return record;
       } catch (java.lang.Exception e) {

@@ -1,6 +1,6 @@
 package com.codebigbear.processor.config;
 
-import com.codebigbear.avro.Review;
+import com.codebigbear.avro.Email;
 import io.confluent.kafka.serializers.KafkaAvroDeserializer;
 import io.confluent.kafka.serializers.KafkaAvroDeserializerConfig;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -32,43 +32,18 @@ public class ReceiverConfig {
     public Map<String, Object> consumerConfigs() {
         Map<String, Object> props = new HashMap<>();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
-
         props.put(KafkaAvroDeserializerConfig.SCHEMA_REGISTRY_URL_CONFIG, schemaRegistryUrl);
         props.put(KafkaAvroDeserializerConfig.SPECIFIC_AVRO_READER_CONFIG, "true");
-
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, KafkaAvroDeserializer.class.getName());
-
-
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "codebigbear-group");
         props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
-         /*
-        Disabling the auto-commit feature to test the manual commit method.
-         */
         props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
-/*
-        props.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG
-                props.put(SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG
-                        props.put(SslConfigs.SSL_KEYSTORE_LOCATION_CONFIG
-                                props.put(SslConfigs.SSL_KEYSTORE_PASSWORD_CONFIG
-                                        props.put(SslConfigs.SSL_KEYSTORE_PASSWORD_CONFIG*/
-       /* props.put(SaslConfigs.SASL_MECHANISM, "GSSAPI");
-        props.put(SaslConfigs.SASL_KERBEROS_SERVICE_NAME, "esaas");
-        props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_SSL");*/
-
-
-
-
-
-
-
-
-
         return props;
     }
 
     @Bean
-    public ConsumerFactory<String, Review> consumerFactory() {
+    public ConsumerFactory<String, Email> consumerFactory() {
         return new DefaultKafkaConsumerFactory<>(consumerConfigs());
     }
 
@@ -76,22 +51,12 @@ public class ReceiverConfig {
 
 
     @Bean
-    public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, Review>> kafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, Review> factory = new ConcurrentKafkaListenerContainerFactory();
+    public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, Email>> kafkaListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<String, Email> factory = new ConcurrentKafkaListenerContainerFactory();
         factory.setConsumerFactory(consumerFactory());
         factory.setConcurrency(10);
         factory.getContainerProperties().setPollTimeout(3000);
-
-        /*
-        AckMode.MANUAL_IMMEDIATE will commit the offsets to kafka immediately, without waiting for any
-        other kind of events to occur.
-
-        But AckMode.MANUAL will work similar to AckMode.BATCH, which means after the acknowledge() method
-        is called on a message, the system will wait till all the messages received by the poll() method have
-        been acknowledged. This could take a long time, depending on your setup.
-         */
         factory.getContainerProperties().setAckMode(AbstractMessageListenerContainer.AckMode.MANUAL_IMMEDIATE);
-
         factory.getContainerProperties().setSyncCommits(true);
         return factory;
     }
