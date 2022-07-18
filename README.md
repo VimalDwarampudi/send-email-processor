@@ -1,6 +1,6 @@
 # send-email-processor
 
-#Put Mirror config in maven settings.xml if compilation failed ( it couldn't pull the dependencies from confluent)
+#Put Mirror config in maven settings.xml if compilation failed ( it couldn't pull the dependencies from confluent) so open the raw file of readme to get the xml tags for mirror
 
 #<mirror>
 #<id>confluent</id>
