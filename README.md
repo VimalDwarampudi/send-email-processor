@@ -4,4 +4,10 @@
 
 #<mirror><id>confluent</id><mirrorOf>confluent</mirrorOf> <name>Nexus public mirror</name><url>http://packages.confluent.io/maven/</url> </mirror>
 
-#compile - mvn clean install 
+#first build avro-schema module
+#cd avro-schema
+#mvn clean install
+
+#next build the main project (send-email-processor)
+#cd ..
+#mvn clean install
